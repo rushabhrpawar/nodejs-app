@@ -22,18 +22,33 @@ spec:
                - containersPort: 3000
 
 
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: nodejsappsvc
+#   labels:
+#       app: nodejs
+# spec:
+#   selector:
+#      app: nodejs
+#   type: LoadBalancer
+#   Ports:
+#      - protocol: TCP
+#        port: 5000
+#        targetPort: 3000
+#        nodePort: 31110
+
+
 apiVersion: v1
 kind: Service
 metadata:
-  name: nodejsappsvc
-  labels:
-      app: nodejs
+  name: nodeapp-service
 spec:
   selector:
-     app: nodejs
+    app: nodeapp 
   type: LoadBalancer
-  Ports:
-     - protocol: TCP
-       port: 5000
-       targetPort: 3000
-       nodePort: 31110
+  ports:
+  - protocol: TCP
+    port: 5000
+    targetPort: 3000
+    nodePort: 31110
