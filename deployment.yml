@@ -18,7 +18,7 @@ spec:
       containers:
           - name: mynodejsappcontainer
             image: rushabh6132/nodejsapp
-            port:
+            ports:
                - containersPort: 3000
 
 
