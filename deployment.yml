@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: nodejs-app
+   labels:
+     app: nodejs
+spec:
+  replicas: 1 
+  selector: 
+    matchLabels:
+       app: nodejs
+  template:
+    metadata:
+      name: nodejsapplication
+      labels:
+        app: nodejs
+    spec:
+      containers:
+          - name: mynodejsappcontainer
+            image: rushabh6132/nodejsapp
+            port:
+               - containersPort: 3000
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodejsappsvc
+  labels:
+      app: nodejs
+spec:
+  selector:
+     app: nodejs
+  type: LoadBalancer
+  Ports:
+     - protocol: TCP
+       port: 5000
+       targetPort: 3000
+       nodePort: 31110
