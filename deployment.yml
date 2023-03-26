@@ -18,8 +18,8 @@ spec:
       containers:
           - name: mynodejsappcontainer
             image: rushabh6132/nodejsapp:latest
-            # ports:
-            #    - containerPort: 4000
+            ports:
+               - containerPort: 5000
 
 
 # apiVersion: v1
@@ -35,7 +35,7 @@ spec:
 #   Ports:
 #      - protocol: TCP
 #        port: 5000
-#        targetPort: 3000
+#        targetPort: 5000
 #        nodePort: 31110
 
 
